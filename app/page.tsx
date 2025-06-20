@@ -1,5 +1,7 @@
 import CompanionCard from '@/components/CompanionCard'
-import { Button } from '@/components/ui/button'
+import CompanionList from '@/components/CompanionList'
+import CTA from '@/components/CTA'
+// import { Button } from '@/components/ui/button'
 import React from 'react'
 
 const companions = [
@@ -7,7 +9,7 @@ const companions = [
     id: '973829',
     name: 'Langy the Modern Speaker',
     topic: 'An introduction to languate',
-    subject: 'Language',
+    subject: 'language',
     duration: 45,
     color: '#E5D0FF',
     bookmarked: false,
@@ -16,7 +18,7 @@ const companions = [
     id: '234173',
     name: 'Mathsy the Number Wizard',
     topic: 'Addition and Simple Arithmetic',
-    subject: 'Mathematics',
+    subject: 'maths',
     duration: 45,
     color: '#BDE7FF',
     bookmarked: false,
@@ -25,7 +27,7 @@ const companions = [
     id: '172493',
     name: 'Babayo the Biological Baba',
     topic: 'An introduction to Human Anatomy',
-    subject: 'Biology',
+    subject: 'science',
     duration: 45,
     color: '#FFDA6E',
     bookmarked: false,
@@ -46,6 +48,15 @@ const Page = () => {
             {...companion}
           />
         ))}
+      </section>
+
+      <section className='home-section'>
+        <CompanionList 
+          title='Recently completed lessons'
+          companions={companions}
+          classNames='w-2/3 max-lg:w-full'
+          />
+        <CTA/>
       </section>
     </main>
   )
