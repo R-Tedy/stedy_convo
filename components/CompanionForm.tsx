@@ -8,6 +8,8 @@ import { Input } from './ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 import { subjects } from '@/constants'
 import { Button } from './ui/button'
+import { createCompanion } from '@/lib/actions/companion.actions'
+import { redirect } from 'next/navigation'
 
 const formSchema = z.object({
   name: z.string().min(1, {message: 'Companion is required.'}),
@@ -31,8 +33,15 @@ const CompanionForm = () => {
     },
   })
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const companion = await createCompanion(values);
+
+    if (companion){
+      redirect(`/companion-lib/${companion.id}`);
+    } else {
+      console.log(`Failed to create a companion.`);
+      redirect('/')
+    }
   }
 
   return (
