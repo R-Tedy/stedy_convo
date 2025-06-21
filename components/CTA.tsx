@@ -23,7 +23,7 @@ const CTA = () => {
           width={12}
           height={12}
         />
-        <Link href={'/companions/new'}>
+        <Link href={'/companion-lib/new'}>
           <p>Build a New Companion</p>
         </Link>
       </button>
