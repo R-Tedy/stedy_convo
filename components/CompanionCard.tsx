@@ -40,7 +40,7 @@ const CompanionCard = ({id, name, topic, subject, duration, color} : CompanionCa
       </div>
 
       <h2 className='text-2xl font-bold'>{name}</h2>
-      <p className='text-sm'>{topic}</p>
+      <p className='text-sm'>Topic: {topic}</p>
       <div className='flex items-center gap-2'>
         <Image
           src={'/icons/clock.svg'}
